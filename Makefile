@@ -27,10 +27,10 @@ debug:
 	docker run --rm -it --name $(INSTANCE) $(NAME)-dev /bin/bash
 
 run:
-	docker run --rm -p 80:80 --name $(INSTANCE) $(NAME)
+	docker run --rm -p 5000:5000 --name $(INSTANCE) $(NAME)
 
 dev:
-	docker run -it --rm -p 80:80 -w /go/src/github.com/$(NAME) -v $(shell pwd)/vendor/github.com/:/go/src/github.com/ -v $(shell pwd):/go/src/github.com/$(NAME) golang:1.6
+	docker run -it --rm -p 5000:5000 -w /go/src/github.com/$(NAME) -v $(shell pwd)/vendor/github.com/:/go/src/github.com/ -v $(shell pwd):/go/src/github.com/$(NAME) golang:1.6
 
 push:
 	docker push $(NAME):$(TAG)
